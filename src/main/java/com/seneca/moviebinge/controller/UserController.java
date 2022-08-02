@@ -94,7 +94,6 @@ public class UserController {
 				responseEntity=new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
 			}
 		catch (Exception e) {
-			
 			response=new MovieBingeResponse<>(e.getMessage(),null);
 			responseEntity=new ResponseEntity<>(response,HttpStatus.NOT_FOUND);
 		}

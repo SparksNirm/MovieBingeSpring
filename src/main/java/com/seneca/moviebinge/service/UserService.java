@@ -3,6 +3,8 @@ package com.seneca.moviebinge.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -106,9 +108,9 @@ public class UserService implements UserDetailsService {
 	}
 	
 	private Boolean isUniqueUserName(String userName) {
-		User user= userRepository.findByUserName(userName).get();
+		Optional<User> useropt= userRepository.findByUserName(userName);
 		Boolean isUnique=true;
-		if(user!=null)
+		if(useropt.isPresent())
 		{
 			isUnique=false;
 		}
@@ -116,9 +118,9 @@ public class UserService implements UserDetailsService {
 	}
 	
 	private Boolean isUniqueEmail(String email) {
-		User user= userRepository.findByEmailAddress(email);
+		Optional<User> useropt= userRepository.findByEmailAddress(email);
 		Boolean isUnique=true;
-		if(user!=null)
+		if(useropt.isPresent())
 		{
 			isUnique=false;
 		}
