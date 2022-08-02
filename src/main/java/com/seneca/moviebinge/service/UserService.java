@@ -53,6 +53,14 @@ public class UserService implements UserDetailsService {
 		{
 			throw new InValidRequest("Invalid Request");
 		}
+		if(user.getPassword()==null || user.getPassword()=="")
+		{
+			throw new InValidRequest("Invalid Request");
+		}
+		if(user.getMobileNumber()==null || user.getMobileNumber()=="")
+		{
+			throw new InValidRequest("Invalid Request");
+		}
 		if(user.getLastName()==null || user.getLastName()=="")
 		{
 			throw new InValidRequest("Invalid Request");
