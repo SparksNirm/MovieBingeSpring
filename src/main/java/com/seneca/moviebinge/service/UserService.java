@@ -39,7 +39,6 @@ public class UserService implements UserDetailsService {
 		
 		User newUser=null;
 		user.setId(sequenceGeneratorService.generateSequenceUser(User.SEQUENCE_NAME));
-		System.out.println(user);
 		if(user.getUserName()==null || user.getUserName()=="")
 		{
 			throw new InValidRequest("Invalid Request");
