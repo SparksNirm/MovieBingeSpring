@@ -117,5 +117,11 @@ public class UserController {
 	 * return responseEntity; }
 	 */
 	
-	
+	@GetMapping("/")
+	public ResponseEntity<String> hello(){
+		ResponseEntity<String> responseEntity=null;
+		responseEntity=new ResponseEntity<>("Hello World!!!",HttpStatus.OK);
+		return responseEntity;
+		
+	}
 }
