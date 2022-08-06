@@ -20,7 +20,7 @@ public interface MovieRepository extends MongoRepository<Movie, Long> {
 	@Query("{$and:[{type:?0},{isFeatured:?1}]}")
 	public List<Movie> getFeaturedMovies(String type,Boolean isFeatured);
 	
-	@Query("{isCarusel:?1}")
+	@Query("{isCarusel:?0}")
 	public List<Movie> getCaursel(Boolean isCarusel);
 	
 }
