@@ -79,7 +79,7 @@ public class MovieController {
 
 	@GetMapping("/searchtitle/{title}")
 	public ResponseEntity<MovieBingeResponse<Movie>> getMoviesOrTvShows(@PathVariable String title){
-		List<Movie> movies=null;;
+		List<Movie> movies=null;
 		MovieBingeResponse<Movie> response=null;
 		movies=movieService.searchMovieByTitle(title);
 		response=new MovieBingeResponse<Movie>("Search by Title is Successfull",movies);
@@ -137,5 +137,23 @@ public class MovieController {
 			responseEntity=new ResponseEntity<MovieBingeResponse<Movie>>(response,HttpStatus.NOT_FOUND);
 		}
 		return responseEntity;
+	}
+	
+	
+	@GetMapping("/caursel")
+	public ResponseEntity<MovieBingeResponse<Movie>> getCaursel(){
+
+		ResponseEntity<MovieBingeResponse<Movie>> responseEntity=null;
+		MovieBingeResponse<Movie> response=null;
+		List<Movie> movies=new ArrayList<>();
+		try {
+			movies=movieService.getCaursel();
+			response=new MovieBingeResponse<Movie>("Caursel Retrived Successfully ",movies);
+			responseEntity=new ResponseEntity<MovieBingeResponse<Movie>>(response,HttpStatus.OK);
+		} catch (Exception e) {
+			response=new MovieBingeResponse<Movie>(e.getMessage(),null);
+			responseEntity=new ResponseEntity<MovieBingeResponse<Movie>>(response,HttpStatus.NOT_FOUND);
+		}
+		return responseEntity; 
 	}
 }
