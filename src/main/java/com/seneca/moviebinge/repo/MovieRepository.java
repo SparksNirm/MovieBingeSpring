@@ -23,4 +23,7 @@ public interface MovieRepository extends MongoRepository<Movie, Long> {
 	@Query("{isCarusel:?0}")
 	public List<Movie> getCaursel(Boolean isCarusel);
 	
+	@Query("{$or:[{type:?0},{type:?1}]}")
+	public List<Movie> getAllShows(String type,String type_1);
+	
 }

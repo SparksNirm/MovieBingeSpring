@@ -54,21 +54,25 @@ public class MovieService {
 	public List<Movie> getFeaturedMovie()
 	{
 		List<Movie> movies = movieRepository.getFeaturedMovies(MovieConstant.MOVIE_TYPE, true);
-		System.out.println(movies);
 		return movies;
 		
 	}
 	public List<Movie> getCaursel()
 	{
 		List<Movie> movies = movieRepository.getCaursel(true);
-		System.out.println(movies);
 		return movies;
 		
 	}
 	public List<Movie> getFeaturedTvShows()
 	{
 		List<Movie> movies = movieRepository.getFeaturedMovies(MovieConstant.TVSHOWS_TYPE, true);
-		System.out.println(movies);
+		return movies;
+		
+	}
+	
+	public List<Movie> getAllShows()
+	{
+		List<Movie> movies = movieRepository.getAllShows(MovieConstant.TVSHOWS_TYPE, MovieConstant.MOVIE_TYPE);
 		return movies;
 		
 	}

@@ -156,4 +156,21 @@ public class MovieController {
 		}
 		return responseEntity; 
 	}
+	
+	@GetMapping("/allshows")
+	public ResponseEntity<MovieBingeResponse<Movie>> getMoviesAndTvShows(){
+
+		ResponseEntity<MovieBingeResponse<Movie>> responseEntity=null;
+		MovieBingeResponse<Movie> response=null;
+		List<Movie> movies=new ArrayList<>();
+		try {
+			movies=movieService.getAllShows();
+			response=new MovieBingeResponse<Movie>("Shows Retrived Successfully ",movies);
+			responseEntity=new ResponseEntity<MovieBingeResponse<Movie>>(response,HttpStatus.OK);
+		} catch (Exception e) {
+			response=new MovieBingeResponse<Movie>(e.getMessage(),null);
+			responseEntity=new ResponseEntity<MovieBingeResponse<Movie>>(response,HttpStatus.NOT_FOUND);
+		}
+		return responseEntity; 
+	}
 }
