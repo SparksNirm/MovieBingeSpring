@@ -23,7 +23,7 @@ import com.seneca.moviebinge.service.MovieService;
 
 @RestController
 @RequestMapping("/movies")
-@CrossOrigin(origins={"http://localhost:3000","https://moviebinge.herokuapp.com/"})
+@CrossOrigin(origins={"http://localhost:3000/","https://moviebinge.herokuapp.com/"})
 public class MovieController {
 
 	@Autowired
